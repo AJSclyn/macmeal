@@ -55,8 +55,10 @@ SCRIPT
   #
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--usb", "on"]
-    vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "android", "--vendorid", "0x18d1"]
+    vb.customize ["usbfilter", "add", "0", "--target", :id, "--name", "android", "--vendorid", "0x0bb4"]
   end
+  #vendorid 18d1-google, lg-1004, htc-0bb4, samsung-04e8, sony-054c
+
   #   # Display the VirtualBox GUI when booting the machine
   #   vb.gui = true
   #
