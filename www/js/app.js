@@ -5,10 +5,10 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('macmeal', ['ionic'])
 
-app.config(function($stateprovider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
-  $stateprovider
+  $stateProvider
     .state('home', {
       url: '/',
       templateUrl: 'views/home.html',
@@ -43,5 +43,5 @@ app.controller('homeController', function($scope, calendarService){
 });
 
 app.factory('calendarService', function($http){
-
+  return {};
 });
