@@ -9,6 +9,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "views/tabs.html"
+    })
     .state('home', {
       url: '/',
       templateUrl: 'views/home.html',
