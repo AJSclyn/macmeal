@@ -43,8 +43,22 @@ app.run(function($ionicPlatform) {
   });
 });
 
-app.controller('homeController', function($scope, calendarService){
+app.controller('homeController', function($scope, $http){
+  $scope.$watch('search', function(){
+    fetch();
+  });
 
+  $scope.search = "Chicken";
+
+  function fetch(){
+    $http({
+      method: 'GET',
+      url: 'https://community-food2fork.p.mashape.com/search?q=shredded+chicken',
+      headers: {'X-Mashape-Key': ''}
+    }).then(function(data){
+      $scope.details = data.data;
+    });
+  }
 });
 
 app.factory('calendarService', function($http){
