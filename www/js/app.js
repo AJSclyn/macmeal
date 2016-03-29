@@ -6,22 +6,40 @@
 var app = angular.module('macmeal', ['ionic'])
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/sign-in');
 
   $stateProvider
+    .state('signin', {
+      url: '/sign-in',
+      templateUrl: 'views/sign-in.html',
+      controller: 'signInCtrl'
+    })
+    .state('fogotpassword', {
+      url: '/forgot-password',
+      templateUrl: 'views/forgot-password.html',
+      controller: 'forgotPasswordCtrl'
+    })
     .state('tabs', {
       url: "/tab",
       abstract: true,
       templateUrl: "views/tabs.html"
     })
-    .state('home', {
-      url: '/',
-      templateUrl: 'views/home.html',
-      controller: 'homeController'
+    .state('tabs.home', {
+      url: '/home',
+      views: {
+        'home-tab': {
+          templateUrl: 'views/home.html',
+          controller: 'homeCtrl'
+        }
+      }
     })
-    .state('about', {
+    .state('tabs.about', {
       url: '/about',
-      templateUrl: 'views/about.html'
+      views: {
+        'about-tab': {
+          templateUrl: 'views/about.html'
+        }
+      }
     });
 })
 
@@ -43,13 +61,23 @@ app.run(function($ionicPlatform) {
   });
 });
 
-app.controller('homeController', function($scope, $http){
+
+app.controller('signInCtrl', function($scope, $state){
+  $scope.signIn = function(user) {
+    $state.go('tabs.home')
+  }
+});
+
+app.controller('forgotPasswordCtrl', function($scope, $state){
+
+});
+
+app.controller('homeCtrl', function($scope, $state, $http, calendarService){
   $scope.$watch('search', function(){
     fetch();
   });
 
   $scope.search = "Chicken";
-
   function fetch(){
     $http({
       method: 'GET',

@@ -1,0 +1,28 @@
+<ion-view view-title="Home" hide-nav-bar="true">
+  <ion-content>
+    <div class='col text-center'>
+      <h3>Welcome to </h3>
+      <h1>Meals & Macros</h1>
+    </div>
+
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">Username</span>
+        <input type="text" ng-model="user.username">
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Password</span>
+        <input type="password" ng-model="user.password">
+      </label>
+    </div>
+    <div class="padding">
+      <button class="button button-block icon icon-right ion-chevron-right" ng-click="signIn(user)">
+        Sign-In
+      </button>
+      <p class="text-center">
+        <a href="#/forgot-password">Forgot password</a>
+      </p>
+    </div>
+
+  </ion-content>
+</ion-view>
