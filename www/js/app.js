@@ -19,27 +19,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/forgot-password.html',
       controller: 'forgotPasswordCtrl'
     })
-    .state('tabs', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "views/tabs.html"
-    })
-    .state('tabs.home', {
+    .state('home', {
       url: '/home',
-      views: {
-        'home-tab': {
-          templateUrl: 'views/home.html',
-          controller: 'homeCtrl'
-        }
-      }
+      templateUrl: 'views/home.html',
+      controller: 'homeCtrl'
     })
-    .state('tabs.about', {
+    .state('about', {
       url: '/about',
-      views: {
-        'about-tab': {
-          templateUrl: 'views/about.html'
-        }
-      }
+      templateUrl: 'views/about.html'
     });
 })
 
@@ -64,7 +51,7 @@ app.run(function($ionicPlatform) {
 
 app.controller('signInCtrl', function($scope, $state){
   $scope.signIn = function(user) {
-    $state.go('tabs.home')
+    $state.go('home')
   }
 });
 
