@@ -6,18 +6,23 @@
 var app = angular.module('macmeal', ['ionic'])
 
 app.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/sign-in');
 
   $stateProvider
-    .state('tabs', {
-      url: "/tab",
-      abstract: true,
-      templateUrl: "views/tabs.html"
+    .state('signin', {
+      url: '/sign-in',
+      templateUrl: 'views/sign-in.html',
+      controller: 'signInCtrl'
+    })
+    .state('fogotpassword', {
+      url: '/forgot-password',
+      templateUrl: 'views/forgot-password.html',
+      controller: 'forgotPasswordCtrl'
     })
     .state('home', {
-      url: '/',
+      url: '/home',
       templateUrl: 'views/home.html',
-      controller: 'homeController'
+      controller: 'homeCtrl'
     })
     .state('about', {
       url: '/about',
@@ -43,8 +48,32 @@ app.run(function($ionicPlatform) {
   });
 });
 
-app.controller('homeController', function($scope, calendarService){
 
+app.controller('signInCtrl', function($scope, $state){
+  $scope.signIn = function(user) {
+    $state.go('home')
+  }
+});
+
+app.controller('forgotPasswordCtrl', function($scope, $state){
+
+});
+
+app.controller('homeCtrl', function($scope, $state, $http, calendarService){
+  $scope.$watch('search', function(){
+    fetch();
+  });
+
+  $scope.search = "Chicken";
+  function fetch(){
+    $http({
+      method: 'GET',
+      url: 'https://community-food2fork.p.mashape.com/search?q=shredded+chicken',
+      headers: {'X-Mashape-Key': ''}
+    }).then(function(data){
+      $scope.details = data.data;
+    });
+  }
 });
 
 app.factory('calendarService', function($http){
