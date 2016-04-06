@@ -8,6 +8,7 @@ var app = angular.module('macmeal', ['ionic'])
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/sign-in');
 
+  //overall routing
   $stateProvider
     .state('signin', {
       url: '/sign-in',
@@ -28,6 +29,31 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/about',
       templateUrl: 'views/about.html'
     });
+
+  //new-user form routing
+  $stateProvider
+    .state('create-account', {
+      url: '/create-account',
+      templateUrl: 'views/new/create-account.html',
+      controller: 'createAccountCtrl'
+    })
+    .state('create-account.login', {
+      url: '/login',
+      templateUrl: 'views/new/login.html'
+    })
+    .state('create-account.body', {
+      url: '/body',
+      templateUrl: 'views/new/body.html'
+    })
+    .state('create-account.activity', {
+      url: '/activity',
+      templateUrl: 'views/new/activiy.html'
+    })
+    .state('create-account.goals', {
+      url: '/goals',
+      templateUrl: 'views/new/goals.html'
+    })
+
 })
 
 app.run(function($ionicPlatform) {
