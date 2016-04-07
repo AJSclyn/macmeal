@@ -20,13 +20,14 @@
         Sign-In
       </button>
 
-      <button class="button icon icon-right ion-chevron-right" ng-click="createAccount()">
+      <a ui-sref="create-account.login" class="button icon icon-right ion-chevron-right">
         Create account
-      </button>
+      </a>
     </div>
-
-    <p class="text-center">
-      <a ui-sref="forgot-password">Forgot password</a>
-    </p>
+    <div class="text-center">
+        <a ui-sref="forgot-password" class="button button-clear button-balance">
+          Forgot Password
+        </a>
+    </div>
   </ion-content>
 </ion-view>
