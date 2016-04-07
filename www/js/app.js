@@ -47,7 +47,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('create-account.activity', {
       url: '/activity',
-      templateUrl: 'views/new/activiy.html'
+      templateUrl: 'views/new/activity.html'
     })
     .state('create-account.goals', {
       url: '/goals',
@@ -79,12 +79,17 @@ app.controller('signInCtrl', function($scope, $state){
   $scope.signIn = function(user) {
     $state.go('home')
   }
+  $scope.createAccount =  function(){
+    $state.go('create-account.login')
+  }
 });
 
 app.controller('forgotPasswordCtrl', function($scope, $state){
 
 });
+app.controller('createAccountCtrl', function($scope, $state){
 
+});
 app.controller('homeCtrl', function($scope, $state, $http, calendarService){
   $scope.$watch('search', function(){
     fetch();

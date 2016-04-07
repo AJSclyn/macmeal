@@ -15,14 +15,18 @@
         <input type="password" ng-model="user.password">
       </label>
     </div>
-    <div class="padding">
-      <button class="button button-block icon icon-right ion-chevron-right" ng-click="signIn(user)">
+    <div class="padding button-bar">
+      <button class="button icon icon-right ion-chevron-right" ng-click="signIn(user)">
         Sign-In
       </button>
-      <p class="text-center">
-        <a ui-sref="forgot-password">Forgot password</a>
-      </p>
+
+      <button class="button icon icon-right ion-chevron-right" ng-click="createAccount()">
+        Create account
+      </button>
     </div>
 
+    <p class="text-center">
+      <a ui-sref="forgot-password">Forgot password</a>
+    </p>
   </ion-content>
 </ion-view>
