@@ -7,3 +7,5 @@ plugins/
 .idea/
 .vagrant/
 resources/
+*.plist
+*.conf
