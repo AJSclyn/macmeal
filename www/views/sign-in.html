@@ -1,18 +1,18 @@
-<ion-view view-title="Home" hide-nav-bar="true">
+<ion-view hide-nav-bar="true" hide-tabs='true'>
   <ion-content>
     <div class='col text-center'>
       <h3>Welcome to </h3>
       <h1>Meals & Macros</h1>
     </div>
 
-    <div class="list">
+    <div class="list list-inset">
       <label class="item item-input">
         <span class="input-label">Username</span>
-        <input type="text" ng-model="user.username">
+        <input type="text" ng-model="user.username" placeholder='Your email'>
       </label>
       <label class="item item-input">
         <span class="input-label">Password</span>
-        <input type="password" ng-model="user.password">
+        <input type="password" ng-model="user.password" placeholder='Your password'>
       </label>
     </div>
 

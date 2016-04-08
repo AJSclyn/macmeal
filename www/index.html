@@ -26,6 +26,14 @@
         <button class="button button-clear icon ion-navicon"></button>
       </ion-nav-buttons>
     </ion-nav-bar>
+    
     <ion-nav-view></ion-nav-view>
+
+    <ion-tabs ng-class="{'tabs-item-hide': $root.hideTabs}" class='tabs-icon-top tabs-striped'>
+      <ion-tab icon='ion-home' title='Home'></ion-tab>
+      <ion-tab icon='ion-person' title='Profile'></ion-tab>
+      <ion-tab icon='ion-calendar' title='Calendar'></ion-tab>
+      <ion-tab icon='ion-information-circled' title='About Us' ui-sref='about'></ion-tab>
+    </ion-tabs>
   </body>
 </html>
