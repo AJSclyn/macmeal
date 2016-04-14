@@ -6,16 +6,17 @@
     </div>
 
     <div class="list list-inset">
-      <label class="item item-input">
-        <span class="input-label">Username</span>
-        <input type="text" ng-model="user.username" placeholder='Your email'>
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Password</span>
-        <input type="password" ng-model="user.password" placeholder='Your password'>
-      </label>
+        <form class="simple-form">
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input type="text" ng-model="user.username" placeholder='Your email'>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="user.password" placeholder='Your password'>
+            </label>
+       </form>
     </div>
-
     <div class="padding button-bar">
       <button class="button icon icon-right ion-chevron-right" ng-click="signIn(user)">
         Sign-In
@@ -24,7 +25,7 @@
         Create account
       </a>
     </div>
-
+ 
     <div class="text-center">
         <a ui-sref="forgot-password" class="button button-clear button-balance">
           Forgot Password

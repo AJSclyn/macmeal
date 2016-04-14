@@ -9,3 +9,6 @@ plugins/
 resources/
 *.plist
 *.conf
+*.DS_Store
+*npm-debug.log
+server/data/db/
