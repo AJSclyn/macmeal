@@ -6,6 +6,10 @@ var userController = require('./controllers/user');
 var passport = require('passport');
 var authController = require('./controllers/auth');
 
+//Adding routes for users.js
+var routes = require('./routes/index');
+var users = require('./models/user');
+
 // Connect to the macmeal
 mongoose.createConnection('mongodb://localhost:27017/macmeal');
 
@@ -25,6 +29,11 @@ app.use(passport.initialize());
 
 // Create our Express router
 var router = express.Router();
+app.use('/', routes);
+
+app.get('/', function(req, res) {
+  res.send('Hello World!'); // load the single view file (angular will handle the page changes on the front-end)
+});
 
 // Create endpoint handlers for /users
 router.route('/users')

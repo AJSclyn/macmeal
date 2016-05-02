@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'views/sign-in.html',
       controller: 'signInCtrl'
     })
-    .state('fogotpassword', {
+    .state('forgotpassword', {
       url: '/forgot-password',
       templateUrl: 'views/forgot-password.html',
       controller: 'forgotPasswordCtrl'
@@ -75,9 +75,18 @@ app.run(function($ionicPlatform) {
 });
 
 
-app.controller('signInCtrl', function($scope, $state){
-  $scope.signIn = function(user) {
-    $state.go('home')
+app.controller('signInCtrl', function($scope, $state, $http){
+  $scope.isValid = "";
+  $scope.signIn = function() {
+    event.preventDefault();
+    var username = $scope.user.username;
+    var password = $scope.user.password;
+
+
+    if(username == 'admin' && password == 'password')
+      $state.go('home')
+    else
+      $scope.isValid = "Incorrect username/password";
   }
   $scope.createAccount =  function(){
     $state.go('create-account.login')
